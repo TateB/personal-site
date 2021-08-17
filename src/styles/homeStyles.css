@@ -1,0 +1,12 @@
+.addBlurImg {
+  filter: invert(30%) blur(3px) !important;
+}
+
+.addBlurDropShadow {
+  filter: drop-shadow(5px 3px 30px #464646) blur(3px) !important;
+  color: grey !important;
+}
+
+.addBlur {
+  filter: blur(3px);
+}

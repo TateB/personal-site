@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "Tate Bulic",
+    siteUrl: "https://tatebulic.com.au",
+    title: "tate bulic",
+    description:
+      "designing and developing web applications from melbourne, australia",
   },
   plugins: [
     "gatsby-plugin-netlify-cms",
@@ -14,14 +16,13 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        name: `posts`,
+        path: `${__dirname}/content/posts`,
       },
-      __key: "pages",
     },
+    `gatsby-transformer-remark`,
   ],
 };
