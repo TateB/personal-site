@@ -17,7 +17,8 @@ module.exports = {
       options: {
         name: "tate bulic",
         short_name: "tate bulic",
-        theme_colour: "#000000",
+        background_color: `#000000`,
+        theme_color: `#000000`,
         icon: "src/images/icon.png",
       },
     },

@@ -65,7 +65,7 @@ const IconsDiv = styled.div`
   justify-content: center;
   margin-bottom: 20px;
   @media (max-width: 700px) {
-    margin-bottom: 35px;
+    margin-bottom: calc(env(safe-area-inset-bottom) + 35px);
   }
 `;
 

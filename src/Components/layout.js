@@ -16,7 +16,7 @@ const BackgroundBlackDiv = styled.div`
   background-color: black;
   min-height: calc(100vh - 125px - 60px);
   @media (max-width: 1024px) {
-    min-height: calc(100vh - 150px - 60px);
+    min-height: calc(100vh - 150px - 60px - env(safe-area-inset-bottom));
   }
 `;
 
@@ -36,6 +36,7 @@ const Footer = styled.footer`
   font-family: "Silka-MonoLight";
   background-color: black;
   height: 60px;
+  margin-bottom: env(safe-area-inset-bottom);
   color: #aaaaaa;
 `;
 
