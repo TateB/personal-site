@@ -27,6 +27,9 @@ const OntopContent = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  @media (max-width: 700px) {
+    justify-content: space-between;
+  }
 `;
 
 const TitleHeader = styled.h1`
@@ -34,38 +37,53 @@ const TitleHeader = styled.h1`
   font-weight: 800;
   font-family: "WotfardBold";
   color: white;
-  filter: drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.4));
+  filter: drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.8));
   transition: all 0.5s ease;
   margin: 0;
+  text-shadow: 0 0 10px black;
+  @media (max-width: 700px) {
+    font-size: 4em;
+    filter: drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.8));
+  }
 `;
 
 const SubtitleHeader = styled.h2`
-  font-size: 2em;
+  font-size: 1.35em;
   color: grey;
-  margin-bottom: 80px;
+  margin-top: 0;
+  margin-bottom: 120px;
   transition: all 0.5s ease;
+  font-family: "Silka-MonoLight";
+  @media (max-width: 700px) {
+    margin-bottom: 0;
+  }
 `;
 
 const IconsDiv = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 10%;
-  min-width: 180px;
-  max-width: 200px;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
+  @media (max-width: 700px) {
+    margin-bottom: 35px;
+  }
 `;
 
-const Icon = styled.img({
-  width: "40px",
-  transition: "all 0.5s ease",
-  filter: "invert(60%) blur(0px)",
-  "&:hover": {
-    cursor: "pointer",
-    filter:
-      "invert(90%) blur(0px) drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.9))",
-  },
-});
-
+const Icon = styled.img`
+  width: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: all 0.5s ease;
+  filter: invert(60%) blur(0px);
+  &:hover {
+    cursor: pointer;
+    filter: invert(90%) blur(0px)
+      drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.9));
+  }
+  @media (max-width: 700px) {
+    width: 55px;
+  }
+`;
 const fadeAnimation = keyframes`
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
@@ -88,6 +106,20 @@ const BackgroundGradient = styled.div`
   );
   background-size: 150% 150%;
   animation: ${fadeAnimation} 25s ease infinite;
+  @media (max-width: 700px) {
+    background-size: 350% 350%;
+  }
+`;
+
+const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 700px) {
+    margin-top: 15px;
+    flex-grow: 1;
+    justify-content: center;
+  }
 `;
 
 const IndexPage = () => {
@@ -117,16 +149,14 @@ const IndexPage = () => {
     }
   }, []);
 
-  const resTo = (link) => {
-    window.location.href = link;
-  };
-
   return (
-    <Layout pageTitle="main" isIndex={true}>
+    <Layout pageTitle="base" isIndex={true}>
       <MainSection>
         <OntopContent>
-          <TitleHeader id="bigtext">tate bulic</TitleHeader>
-          <SubtitleHeader id="subtitle">designer/developer</SubtitleHeader>
+          <TextWrapper>
+            <TitleHeader id="bigtext">tate bulic</TitleHeader>
+            <SubtitleHeader id="subtitle">designer/developer</SubtitleHeader>
+          </TextWrapper>
           <IconsDiv>
             <Link
               to="https://github.com/TateB"

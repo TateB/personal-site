@@ -20,6 +20,20 @@
     url("../font/wotfard-regular-webfont.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Silka-MonoLight";
+  src: url("../font/silkamono-light-webfont.eot");
+  src: url("../font/silkamono-light-webfont.woff2") format("woff2"),
+    url("../font/silkamono-light-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Silka-MonoRegular";
+  src: url("../font/silkamono-regular-webfont.eot");
+  src: url("../font/silkamono-regular-webfont.woff2") format("woff2"),
+    url("../font/silkamono-regular-webfont.ttf") format("truetype");
+}
+
 body {
   font-family: "WotfardLight";
   color: white;

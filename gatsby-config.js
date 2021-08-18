@@ -2,8 +2,10 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://tatebulic.com.au",
     title: "tate bulic",
+    titleTemplate: "%s | tate bulic",
     description:
       "designing and developing web applications from melbourne, australia",
+    twitterUsername: "@tatebulic",
   },
   plugins: [
     "gatsby-plugin-netlify-cms",
@@ -13,6 +15,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        name: "tate bulic",
+        short_name: "tate bulic",
         icon: "src/images/icon.png",
       },
     },

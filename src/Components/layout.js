@@ -1,18 +1,23 @@
 import styled from "@emotion/styled";
-import { graphql, useStaticQuery } from "gatsby";
 import React, { Fragment } from "react";
-import { Helmet } from "react-helmet";
+import Seo from "../Components/seo";
 import "./fonts.css";
 import Header from "./Header";
 
 const LayoutPadding = styled.div`
   max-width: 80%;
   margin: auto;
+  @media (max-width: 750px) {
+    max-width: 90%;
+  }
 `;
 
 const BackgroundBlackDiv = styled.div`
   background-color: black;
-  min-height: calc(100vh - 125px);
+  min-height: calc(100vh - 125px - 60px);
+  @media (max-width: 1024px) {
+    min-height: calc(100vh - 150px - 60px);
+  }
 `;
 
 const SeperatingLine = styled.hr`
@@ -24,38 +29,34 @@ const SeperatingLine = styled.hr`
   margin-top: 0px;
 `;
 
-export const Layout = ({ isIndex, pageTitle, children, slug }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+const Footer = styled.footer`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Silka-MonoLight";
+  background-color: black;
+  height: 60px;
+  color: #aaaaaa;
+`;
 
+export const Layout = ({ isIndex, children, slug, isError }) => {
   if (isIndex) {
     return (
       <Fragment>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>
-            {pageTitle} | {data.site.siteMetadata.title}
-          </title>
-        </Helmet>
+        <Seo title="base" />
+        {children}
+      </Fragment>
+    );
+  } else if (isError) {
+    return (
+      <Fragment>
+        <Seo title="error" />
         {children}
       </Fragment>
     );
   } else {
     return (
       <Fragment>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>
-            {pageTitle} | {data.site.siteMetadata.title}
-          </title>
-        </Helmet>
         <Header slug={slug} />
         <BackgroundBlackDiv>
           <LayoutPadding>
@@ -63,6 +64,7 @@ export const Layout = ({ isIndex, pageTitle, children, slug }) => {
             {children}
           </LayoutPadding>
         </BackgroundBlackDiv>
+        <Footer>copyright &copy; tate bulic {new Date().getFullYear()}</Footer>
       </Fragment>
     );
   }
