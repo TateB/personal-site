@@ -11,8 +11,8 @@ const fadeAnimation = keyframes`
 
 const BackgroundGradient = styled.div`
   height: 125px;
-  width: 350px;
-  margin: auto;
+  flex-grow: 1;
+  min-width: 325px;
   z-index: 0;
   background: linear-gradient(
     270deg,
@@ -29,6 +29,35 @@ const BackgroundGradient = styled.div`
   @media (max-width: 1024px) {
     background-size: 250% 250%;
     height: 110px;
+  }
+`;
+
+const WhiteBackground = styled.div`
+  height: 100vh;
+  z-index: 0;
+  background: white;
+  width: 450px;
+  flex-grow: 1;
+  @media (max-width: 1500px) {
+    width: 250px;
+    @media (max-width: 1024px) {
+      width: 100%;
+      height: 50px;
+    }
+  }
+`;
+
+const WhiteBackgroundFiller = styled.div`
+  height: 100vh;
+  z-index: 0;
+  background: white;
+  width: 450px;
+  flex-grow: 1;
+  @media (max-width: 1500px) {
+    width: 250px;
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 `;
 
@@ -68,6 +97,7 @@ const TitleHeader = styled.h1`
 
 const Heading = styled.header`
   height: 125px;
+  overflow: hidden;
   @media (max-width: 1024px) {
     height: 150px;
   }
@@ -137,6 +167,17 @@ const RootPlace = styled.div`
   align-items: center;
 `;
 
+const BlendHandler = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 125px;
+  margin-top: -5px;
+  @media (max-width: 1024px) {
+    height: 150px;
+    flex-direction: column-reverse;
+  }
+`;
+
 const Header = ({ slug }) => {
   return (
     <Heading>
@@ -172,7 +213,11 @@ const Header = ({ slug }) => {
           <TrailDiv />
         </Constraints>
       </OntopContent>
-      <BackgroundGradient />
+      <BlendHandler>
+        <WhiteBackground />
+        <BackgroundGradient />
+        <WhiteBackgroundFiller />
+      </BlendHandler>
     </Heading>
   );
 };

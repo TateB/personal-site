@@ -6,6 +6,7 @@ import { Layout } from "../Components/layout";
 
 const MainSection = styled.main`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -61,8 +62,7 @@ const fadeAnimation = keyframes`
 `;
 
 const BackgroundGradient = styled.div`
-  height: 350px;
-  margin-bottom: 100px;
+  flex-grow: 2;
   width: 100%;
   z-index: 0;
   background: linear-gradient(
@@ -98,6 +98,14 @@ const GoBack = styled.p`
   margin-bottom: 25px;
 `;
 
+const WhiteBackground = styled.div`
+  flex-grow: 1;
+  width: 100%;
+  margin-bottom: 1px;
+  z-index: 0;
+  background: white;
+`;
+
 // markup
 const NotFoundPage = () => {
   return (
@@ -113,6 +121,7 @@ const NotFoundPage = () => {
           </Link>
         </OntopContent>
         <BackgroundGradient />
+        <WhiteBackground />
       </MainSection>
     </Layout>
   );

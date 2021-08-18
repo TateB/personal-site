@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { Fragment } from "react";
+import React from "react";
 import Seo from "../Components/seo";
 import "./fonts.css";
 import Header from "./Header";
@@ -39,24 +39,28 @@ const Footer = styled.footer`
   color: #aaaaaa;
 `;
 
+const RealBgDiv = styled.div`
+  background-color: black;
+`;
+
 export const Layout = ({ isIndex, children, slug, isError }) => {
   if (isIndex) {
     return (
-      <Fragment>
+      <RealBgDiv>
         <Seo title="base" />
         {children}
-      </Fragment>
+      </RealBgDiv>
     );
   } else if (isError) {
     return (
-      <Fragment>
+      <RealBgDiv>
         <Seo title="error" />
         {children}
-      </Fragment>
+      </RealBgDiv>
     );
   } else {
     return (
-      <Fragment>
+      <RealBgDiv>
         <Header slug={slug} />
         <BackgroundBlackDiv>
           <LayoutPadding>
@@ -65,7 +69,7 @@ export const Layout = ({ isIndex, children, slug, isError }) => {
           </LayoutPadding>
         </BackgroundBlackDiv>
         <Footer>copyright &copy; tate bulic {new Date().getFullYear()}</Footer>
-      </Fragment>
+      </RealBgDiv>
     );
   }
 };
