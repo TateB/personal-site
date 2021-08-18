@@ -164,12 +164,12 @@ const IndexPage = () => {
             >
               <Icon src={GithubIcon} className="icon" />
             </Link>
-            <Link
-              to="mailto:me@tatebulic.com.au"
+            <a
+              href="mailto:me@tatebulic.com.au"
               style={{ textDecoration: "none" }}
             >
               <Icon src={EmailIcon} className="icon" />
-            </Link>
+            </a>
             <Link
               to="https://twitch.tv/taytems"
               style={{ textDecoration: "none" }}
